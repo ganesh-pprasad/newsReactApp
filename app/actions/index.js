@@ -1,11 +1,13 @@
-const webhoseio = require('webhoseio');
+import TOKEN from '../config/env';
 
-const client = webhoseio.config({ token : '66877140-cff5-41e6-b9ad-a6710d6c821d' });
+const webhoseio = require('webhoseio');
 
 // default export for a single value
 export const FETCH_NEWS = 'fetch_news';
 
 export const getNewsData = (searchText) => {
+  console.log('TOKEN', TOKEN);
+  const client = webhoseio.config({ token : TOKEN });
   const query = {
     q : `"${searchText}" language:english`,
     sort : "crawled",
