@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { getNewsData } from '../actions/index';
+import { getNewsData, resetNewsData } from '../actions/index';
 import Msg from './Msg';
 
 class SearchBar extends Component {
@@ -23,7 +23,7 @@ class SearchBar extends Component {
   }
 
   onSubmit(e) {
-    console.log('this', this);
+    this.props.resetNewsData();
     this.setState({ submit : true });
     e.preventDefault();
     this.props.getNewsData(this.state.value);
@@ -54,16 +54,18 @@ class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getNewsData }, dispatch);
+  return bindActionCreators({ getNewsData, resetNewsData }, dispatch);
 }
 
 SearchBar.propTypes = {
   getNewsData : PropTypes.func,
   setLoading : PropTypes.func,
+  resetNewsData : PropTypes.func,
 };
 SearchBar.defaultProps = {
   getNewsData : () => { /* noop */ },
   setLoading : () => { /* noop */ },
+  resetNewsData : () => { /* noop */ },
 };
 
 export default connect(null, mapDispatchToProps)(SearchBar);

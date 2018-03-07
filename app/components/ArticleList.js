@@ -18,7 +18,6 @@ class ArticleList extends Component {
     if (index > 4) {
       return false;
     }
-    this.props.resetLoading(false);
     const data = {};
     data.author = newsData.author;
     data.content = newsData.text;
@@ -27,7 +26,13 @@ class ArticleList extends Component {
   }
 
   render() {
-    return <ul> {this.props.news.map(this.renderNews)} </ul>;
+    if (this.props.news.length > 0) {
+      return <ul> {this.props.news.map(this.renderNews)} </ul>;
+    }
+    if (this.props.loading) {
+      return <ul>Loading...</ul>;
+    }
+    return <ul />;
   }
 }
 
@@ -53,11 +58,13 @@ ArticleList.propTypes = {
     url : PropTypes.string,
     uuid : PropTypes.string,
   })),
-  resetLoading : PropTypes.func,
+  // resetLoading : PropTypes.func,
+  loading : PropTypes.bool,
 };
 ArticleList.defaultProps = {
   news : [],
-  resetLoading : () => { /* noop */ },
+  // resetLoading : () => { /* noop */ },
+  loading : false,
 };
 
 export default connect(mapStateToProps)(ArticleList);

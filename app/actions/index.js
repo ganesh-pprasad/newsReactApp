@@ -4,6 +4,7 @@ const webhoseio = require('webhoseio');
 
 // default export for a single value
 export const FETCH_NEWS = 'fetch_news';
+export const RESET_NEWS = 'reset_news';
 
 export const getNewsData = (searchText) => {
   const client = webhoseio.config({ token : TOKEN });
@@ -15,5 +16,12 @@ export const getNewsData = (searchText) => {
   return {
     type : FETCH_NEWS,
     payload : response,
+  };
+};
+
+export const resetNewsData = () => {
+  return {
+    type : RESET_NEWS,
+    payload : [],
   };
 };
