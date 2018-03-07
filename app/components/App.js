@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import SearchBar from './SearchBar';
 import ArticleList from './ArticleList';
 
-const App = () => {
-  return (
-    <div>
-      <SearchBar />
-      <ArticleList />
-    </div>
-  );
-};
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading : false,
+    };
+    this.setLoading = this.setLoading.bind(this);
+  }
+
+  setLoading(bool) {
+    console.log('setLoading');
+    this.setState({ loading : bool });
+  }
+
+  render() {
+    return (
+      <div>
+        <SearchBar setLoading={this.setLoading} />
+        <ArticleList loading={this.state.loading} resetLoading={this.setLoading} />
+      </div>
+    );
+  }
+}
 
 export default App;

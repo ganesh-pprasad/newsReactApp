@@ -2,4 +2,37 @@ $color: #262828;
 
 body {
   color: $color;
+  font-family: system-ui;
+}
+
+.input-group{
+  height: 4rem;
+  display: grid;
+  
+  input{
+    width: 60%;
+    height: 1.5rem;
+    margin: auto;
+    font-size: 0.8rem;
+    
+    &:focus{
+      outline: #4a6 auto 3px;
+    }
+  }
+}
+
+.msg{
+  padding: 3rem;
+  padding-left: 2.5rem;
+}
+
+ul{
+  display: grid;
+  grid-template-columns: 50% auto;
+  grid-template-rows: 100%;
+  
+  li{
+    padding: 1.2rem;
+    list-style-type: none;
+  }
 }

@@ -6,7 +6,6 @@ const webhoseio = require('webhoseio');
 export const FETCH_NEWS = 'fetch_news';
 
 export const getNewsData = (searchText) => {
-  console.log('TOKEN', TOKEN);
   const client = webhoseio.config({ token : TOKEN });
   const query = {
     q : `"${searchText}" language:english`,

@@ -5,10 +5,20 @@ import { connect } from 'react-redux';
 import Article from './Article';
 
 class ArticleList extends Component {
+  constructor(props) {
+    super(props);
+    this.renderNews = this.renderNews.bind(this);
+  }
+
   renderNews(newsData, index) {
-    if (!newsData || !newsData.author || !newsData.title) {
+    if (!newsData || !newsData.author || !newsData.title || !newsData.text) {
       return false;
     }
+
+    if (index > 4) {
+      return false;
+    }
+    this.props.resetLoading(false);
     const data = {};
     data.author = newsData.author;
     data.content = newsData.text;
@@ -43,9 +53,11 @@ ArticleList.propTypes = {
     url : PropTypes.string,
     uuid : PropTypes.string,
   })),
+  resetLoading : PropTypes.func,
 };
 ArticleList.defaultProps = {
   news : [],
+  resetLoading : () => { /* noop */ },
 };
 
 export default connect(mapStateToProps)(ArticleList);
