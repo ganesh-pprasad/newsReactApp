@@ -13,10 +13,7 @@
     "coverage": "jest --coverage"
   },
   "husky": {
-    "hooks": {
-      "precommit": "cross-env npm run lint && npm test",
-      "prepush": "cross-env npm run lint && npm test"
-    }
+    "hooks": {}
   },
   "author": "Ganesh Prasad",
   "license": "MIT",
