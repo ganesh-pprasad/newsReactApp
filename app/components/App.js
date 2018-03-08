@@ -7,8 +7,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.setLoading = this.setLoading.bind(this);
-    // som
-    this.setLoading;
   }
 
   state = {
