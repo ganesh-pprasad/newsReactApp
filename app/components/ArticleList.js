@@ -11,17 +11,14 @@ class ArticleList extends Component {
   }
 
   renderNews(newsData, index) {
-    if (!newsData || !newsData.author || !newsData.title || !newsData.text) {
-      return false;
-    }
-
-    if (index > 4) {
+    if (!newsData || !newsData.author || !newsData.title) {
       return false;
     }
     const data = {};
     data.author = newsData.author;
     data.content = newsData.text;
     data.title = newsData.title;
+    data.url = newsData.url;
     return (<Article data={data} key={index} />);
   }
 

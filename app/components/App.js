@@ -6,15 +6,14 @@ import ArticleList from './ArticleList';
 class App extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      loading : false,
-    };
     this.setLoading = this.setLoading.bind(this);
   }
 
+  state = {
+    loading : false,
+  }
+
   setLoading(bool) {
-    console.log('setLoading');
     this.setState({ loading : bool });
   }
 

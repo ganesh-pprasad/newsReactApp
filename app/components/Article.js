@@ -5,8 +5,8 @@ const Article = (props) => {
   return (
     <li className="article">
       <h4 className="author">{props.data.author}</h4>
-      <h2 className="title">{props.data.title}</h2>
-      <p className="content">{props.data.content}</p>
+      <a href={props.data.url} className="title">{props.data.title}</a>
+      {/* <p className="content">{props.data.content}</p> */}
     </li>
   );
 };
@@ -20,6 +20,7 @@ Article.propTypes = {
     author : PropTypes.string,
     content : PropTypes.string,
     title : PropTypes.string,
+    url : PropTypes.string,
   }),
 };
 

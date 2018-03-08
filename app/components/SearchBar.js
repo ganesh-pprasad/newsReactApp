@@ -33,6 +33,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
+        <h2 className="app-title">News Search</h2>
         <form
           onSubmit={this.onSubmit}
           className="input-group"
