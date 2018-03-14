@@ -10,10 +10,9 @@
     "lint": "eslint ./app/**/**.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "coverage": "jest --coverage"
-  },
-  "husky": {
-    "hooks": {}
+    "coverage": "jest --coverage",
+    "precommit": "cross-env npm run lint && npm test",
+    "prepush": "cross-env npm run lint && npm test"
   },
   "author": "Ganesh Prasad",
   "license": "MIT",
@@ -44,7 +43,7 @@
     "react-dom": "16.2.0",
     "react-hot-loader": "4.0.0-rc.0",
     "react-redux": "^5.0.7",
-    "react-router-dom": "4.2.2",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
     "webhoseio": "^1.0.2"
@@ -73,7 +72,7 @@
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.7",
     "html-webpack-plugin": "2.30.1",
-    "husky": "^0.15.0-rc.8",
+    "husky": "^0.15.0-rc.2",
     "jest": "22.1.0",
     "node-sass": "4.7.2",
     "open-browser-webpack-plugin": "0.0.5",

@@ -19,6 +19,7 @@ class ArticleList extends Component {
     data.content = newsData.text;
     data.title = newsData.title;
     data.url = newsData.url;
+    data.uuid = newsData.uuid;
     return (<Article data={data} key={index} />);
   }
 
