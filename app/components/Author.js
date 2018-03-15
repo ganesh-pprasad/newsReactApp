@@ -8,8 +8,14 @@ import { getAuthorData } from '../actions';
 
 class Author extends Component {
   componentDidMount() {
-    console.log('getAuthorData');
     this.props.getAuthorData(this.props.match.params.author);
+  }
+
+  goBack() {
+    if (this.props.works.length > 0) {
+      this.props.works.length = 0;
+    }
+    this.props.history.push('/');
   }
 
   renderArticles(article, i) {
@@ -28,9 +34,15 @@ class Author extends Component {
   }
 
   render() {
-    console.log('render called');
+    console.log('asdf', this.props.history);
+
+    if (this.props.works.length < 1) {
+      return <div>Loading</div>
+    }
+
     return (
       <div>
+        <button onClick={() => { this.goBack(); }}>Go Back</button>
         <h3>{this.props.match.params.author}</h3>
         <div className="works">
           {this.props.works.map(this.renderArticles)}
@@ -56,6 +68,7 @@ Author.defaultProps = {
     },
   },
   works : [],
+  history : {},
 };
 
 Author.propTypes = {
@@ -82,6 +95,24 @@ Author.propTypes = {
     url : PropTypes.string,
     uuid : PropTypes.string,
   })),
+  history : PropTypes.shape({
+    action : PropTypes.string,
+    block : PropTypes.func,
+    createHref : PropTypes.func,
+    go : PropTypes.func,
+    goBack : PropTypes.func,
+    goForward : PropTypes.func,
+    length : PropTypes.number,
+    listen : PropTypes.func,
+    location : PropTypes.shape({
+      pathname : PropTypes.string,
+      search : PropTypes.string,
+      hash : PropTypes.string,
+      state : PropTypes,
+    }),
+    push : PropTypes.func,
+    replace : PropTypes.func,
+  }),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Author);

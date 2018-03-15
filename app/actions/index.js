@@ -6,6 +6,7 @@ const webhoseio = require('webhoseio');
 export const FETCH_NEWS = 'fetch_news';
 export const RESET_NEWS = 'reset_news';
 export const AUTHOR = 'author';
+export const TREND = 'trend';
 
 export const getNewsData = (searchText) => {
   const client = webhoseio.config({ token : TOKEN });
@@ -39,3 +40,17 @@ export const getAuthorData = (author) => {
     payload : response,
   };
 };
+
+export const getTrendingData = () => {
+  const client = webhoseio.config({ token : TOKEN });
+  const query = {
+    q : "performance_score:>6",
+    ts : "1521011431247",
+    sort : "performance_score",
+  };
+  const response = client.query('filterWebContent', query);
+  return {
+    type : TREND,
+    payload : response,
+  };
+}

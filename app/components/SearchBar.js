@@ -15,6 +15,7 @@ class SearchBar extends Component {
     };
     this.onInutChange = this.onInutChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    console.log('this,', this);
   }
 
   onInutChange(e) {

@@ -1,7 +1,8 @@
-import { FETCH_NEWS, RESET_NEWS } from '../actions/index';
+import { FETCH_NEWS, RESET_NEWS, TREND } from '../actions/index';
 
 export default function(state = [], action) {
   switch (action.type) {
+    case TREND:
     case FETCH_NEWS:
       return [action.payload.posts, ...state];
     case RESET_NEWS:
