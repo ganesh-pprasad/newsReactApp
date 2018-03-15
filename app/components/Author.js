@@ -37,7 +37,7 @@ class Author extends Component {
     console.log('asdf', this.props.history);
 
     if (this.props.works.length < 1) {
-      return <div>Loading</div>
+      return <div>Loading</div>;
     }
 
     return (
@@ -57,7 +57,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps({ works }) {
-  return { works : works[0] }
+  return { works : works[0] };
 }
 
 Author.defaultProps = {

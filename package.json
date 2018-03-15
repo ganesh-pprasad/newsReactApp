@@ -10,9 +10,7 @@
     "lint": "eslint ./app/**/**.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "coverage": "jest --coverage",
-    "precommit": "cross-env npm run lint && npm test",
-    "prepush": "cross-env npm run lint && npm test"
+    "coverage": "jest --coverage"
   },
   "author": "Ganesh Prasad",
   "license": "MIT",
@@ -84,5 +82,11 @@
     "url-loader": "0.6.2",
     "webpack": "3.11.0",
     "webpack-dev-server": "2.9.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "cross-env npm run lint && npm test",
+      "pre-push": "cross-env npm run lint && npm test"
+    }
   }
 }
