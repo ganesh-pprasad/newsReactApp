@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ReactJS Boilerplate</title>
+    <title>ReactJS News App</title>
     <link href="./styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
 </head>
 <body>
 <div id="root"></div>
-<script type="text/javascript" src="bundle.js"></script>
+<script type="text/javascript" src="bundle.js">
+  var doc = Document.getElementByTag('body');
+  doc.foundation();
+</script>
 </body>
 </html>

@@ -31,9 +31,21 @@ class ArticleList extends Component {
       return <ul> {this.props.news.map(this.renderNews)} </ul>;
     }
     if (this.props.loading) {
-      return <ul>Loading...</ul>;
+      return (
+        <div className="loading-msg">
+          <h3>
+            <small>Loading</small>
+          </h3>
+        </div>
+      );
     }
-    return <ul />;
+    return (
+      <div className="loading-msg">
+        <h3>
+          <small>Loading Trending Topics</small>
+        </h3>
+      </div>
+    );
   }
 }
 

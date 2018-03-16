@@ -8,10 +8,9 @@ const Article = (props) => {
 
   return (
     <li className="article">
-      <Link to={toAuthor} className="author">{props.data.author}</Link> <br />
-      <Link to={toArticle} className="title">{props.data.title}</Link> <br />
-      <a href={props.data.url} className="title"><small>Original article</small></a>
-      {/* <p className="content">{props.data.content}</p> */}
+      <Link to={toAuthor} className="author"><h4><strong>{props.data.author}</strong></h4></Link>
+      <Link to={toArticle} className="title"><h4>{props.data.title}</h4></Link>
+      <a href={props.data.url} className="title"><h5><small>Go to Original article</small></h5></a>
     </li>
   );
 };

@@ -10,6 +10,7 @@ body {
   color: #4a6;
   letter-spacing: 1px;
   font-size: 2rem;
+  padding: 2rem 0;
 }
 
 .input-group{
@@ -18,9 +19,8 @@ body {
   
   input{
     width: 60%;
-    height: 1.5rem;
     margin: auto;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     
     &:focus{
       outline: #4a6 auto 3px;
@@ -28,9 +28,24 @@ body {
   }
 }
 
+.loading-msg{
+  text-align: center;
+  padding: 5rem;
+  
+  h3 {
+    small {
+      animation-name: dots;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+  }
+}
+
 .msg{
   padding: 3rem;
   padding-left: 2.5rem;
+  text-align: center;
 }
 
 ul{
@@ -42,4 +57,57 @@ ul{
     padding: 1.2rem;
     list-style-type: none;
   }
+}
+
+@keyframes dots {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.button.hollow{
+  margin-left: 2rem;
+  margin-top: 5rem;
+}
+
+.author {
+  padding: 2rem 0 2rem 4rem;
+  margin: 2rem 0;
+  font-weight: bold;
+  background: rgb(30,29,79);
+  color: rgb(244,220,64);
+}
+
+.author-article {
+  margin: 2rem;
+  max-height: 66rem;
+  overflow: hidden;
+  border: 1px solid rgb(10,130,136);
+  
+  img {
+    max-width: 65%;
+  }
+  
+  h2 {
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    max-width: 40rem;
+  }
+  
+  p {
+    padding: 2rem;
+    max-width: 50rem;
+  }
+}
+
+.author-con {
+  color: rgb(9,115,153);
+  background-color: rgb(252,237,239);
 }

@@ -5,16 +5,17 @@ const Msg = (props) => {
   let msg = null;
   if (props.searchText) {
     if (props.submit) {
-      msg = `Showing articles for ${props.searchText} ... `;
-    } else {
-      msg = `Show articles for ${props.searchText} [ENTER]`;
+      msg = `Showing results for`;
+      return (
+        <h5 className="msg">{msg} : <strong>{props.searchText}</strong> </h5>
+      );
     }
-  } else {
-    msg = "Search for news !! ";
+    msg = `Show results for`;
+    return (
+      <h5 className="msg">{msg} : <i>{props.searchText}</i> <kbd>hit Enter</kbd> </h5>
+    );
   }
-  return (
-    <div className="msg">{msg}</div>
-  );
+  return <div />;
 };
 
 Msg.propTypes = {

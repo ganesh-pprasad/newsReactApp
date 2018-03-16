@@ -26,24 +26,43 @@ class Author extends Component {
       return false;
     }
     return (
-      <div key={i}>
-        <h3>{article.title}</h3>
+      <div className="author-article" key={i}>
+        <h2>{article.title}</h2>
+        {article.thread.main_image &&
+          <img src={article.thread.main_image} alt="main for article" />
+        }
         <p>{article.text}</p>
+        {/* <button
+          className="clear button secondary"
+          onClick={  }
+        >
+          Read More
+        </button> */}
       </div>
     );
   }
 
   render() {
-    console.log('asdf', this.props.history);
-
     if (this.props.works.length < 1) {
-      return <div>Loading</div>;
+      return (
+        <div className="loading-msg">
+          <h3>Works of : {this.props.match.params.author}</h3>
+          <h3>
+            <small>Loading</small>
+          </h3>
+        </div>
+      );
     }
-
+    console.log('this.props', this.props);
     return (
-      <div>
-        <button onClick={() => { this.goBack(); }}>Go Back</button>
-        <h3>{this.props.match.params.author}</h3>
+      <div className="author-con">
+        <button
+          className="hollow button secondary"
+          onClick={() => { this.goBack(); }}
+        >
+          &lt;- Go Back
+        </button>
+        <h1 className="author">{this.props.match.params.author}</h1>
         <div className="works">
           {this.props.works.map(this.renderArticles)}
         </div>
@@ -79,21 +98,24 @@ Author.propTypes = {
     }),
   }),
   works : PropTypes.arrayOf(PropTypes.shape({
-    author : PropTypes.string,
-    crawled : PropTypes.string,
-    entities : {},
-    external_links : PropTypes.string,
-    highlightText : PropTypes.string,
-    highlightTitle : PropTypes.string,
-    language : PropTypes.string,
-    ord_in_thread : PropTypes.string,
-    published : PropTypes.string,
-    rating : PropTypes.string,
+    // author : PropTypes.string,
+    // crawled : PropTypes.string,
+    // entities : {},
+    // external_links : PropTypes.string,
+    // highlightText : PropTypes.string,
+    // highlightTitle : PropTypes.string,
+    // language : PropTypes.string,
+    // ord_in_thread : PropTypes.string,
+    // published : PropTypes.string,
+    // rating : PropTypes.string,
     text : PropTypes.string,
-    thread : PropTypes.string,
+    main_image : PropTypes.string,
     title : PropTypes.string,
-    url : PropTypes.string,
-    uuid : PropTypes.string,
+    thread : PropTypes.shape({
+      main_image : PropTypes.string,
+    }),
+    // url : PropTypes.string,
+    // uuid : PropTypes.string,
   })),
   history : PropTypes.shape({
     action : PropTypes.string,
